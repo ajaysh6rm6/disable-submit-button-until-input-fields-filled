@@ -1,0 +1,17 @@
+$(document).ready(function (){
+  validate();
+  $('#EMAIL, #FNAME, #LNAME, #card-element').change(validate);
+});
+
+function validate(){
+    if ($('#EMAIL').val().length   >   0   &&
+        $('#FNAME').val().length  >   0   &&
+        $('#LNAME').val().length    >   0  &&
+        $('#card-element').hasClass('StripeElement--complete')
+        ){
+        $("button[type=button]").prop("disabled", false);
+    }
+    else {
+        $("button[type=button]").prop("disabled", true);
+    }
+}
